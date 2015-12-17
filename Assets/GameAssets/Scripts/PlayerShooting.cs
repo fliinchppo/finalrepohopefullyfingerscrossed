@@ -56,7 +56,7 @@ public class PlayerShooting : MonoBehaviour {
 	}
 	
 	//-------Update is called once per frame------------------------------------------------------------------------------------------------------------------------------------
-	void Update () {
+	void FixedUpdate () {
 		if (Input.GetButton ("Fire1") && Time.time > shotTime && currentAmmo > 0 && canShoot == true && !Input.GetButton ("Sprint")) {
 			gameObject.GetComponent<Animation> ().Play ("glock_fire");
 			shoot ();

@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	//-------Update is called once per frame------------------------------------------------------------------------------------------------------------------------------------
-	void Update () {
+	void FixedUpdate () {
 		CharacterController controller = GetComponent<CharacterController> ();
 		//-------Check if player is on ground-----------------------------------------------------------------------------------------------------------------------------------
 		if (controller.isGrounded) {
