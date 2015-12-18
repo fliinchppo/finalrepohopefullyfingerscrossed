@@ -20,7 +20,11 @@ Platform assembly: E:\My Companies\Elixir\ElixirU5\Arena_fps\Builds\networktest_
 Loading E:\My Companies\Elixir\ElixirU5\Arena_fps\Builds\networktest_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
 Platform assembly: E:\My Companies\Elixir\ElixirU5\Arena_fps\Builds\networktest_Data\Managed\Photon3Unity3D.dll (this message is harmless)
 Loading E:\My Companies\Elixir\ElixirU5\Arena_fps\Builds\networktest_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
-- Completed reload, in  0.075 seconds
+Platform assembly: E:\My Companies\Elixir\ElixirU5\Arena_fps\Builds\networktest_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\My Companies\Elixir\ElixirU5\Arena_fps\Builds\networktest_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: E:\My Companies\Elixir\ElixirU5\Arena_fps\Builds\networktest_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\My Companies\Elixir\ElixirU5\Arena_fps\Builds\networktest_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.081 seconds
 desktop: 1920x1080 60Hz; virtual: 3840x1080 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -32,7 +36,7 @@ mPlayerListCopy
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 28ec -> priority: 1 
+  Thread -> id: 1220 -> priority: 1 
 mPlayerListCopy 
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
@@ -46,6 +50,14 @@ Connected to: RoomName
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
 mPlayerListCopy 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+The observed monobehaviour (playerController) of this PhotonView does not implement OnPhotonSerializeView()!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+The observed monobehaviour (player(Clone)) of this PhotonView does not implement OnPhotonSerializeView()!
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
 
