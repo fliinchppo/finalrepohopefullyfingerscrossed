@@ -1,0 +1,80 @@
+﻿{
+"assaultRifle" : {
+	"name" : "Assault Rifle",
+	"damage" : 3,
+	"ammoClip" : 32,
+	"ammoReserve" : 96,
+	"automatic" : true,
+	"hitscan" : true,
+	"projectileCount" : 1,
+	"projectileSpeed" : "hitscan",
+	"projectileSpread" : 5,
+	"reloadTime" : 4,
+	"shotDelay" : 0.05
+}
+"boltActionRifle" : {
+	"name" : "Bolt-Action Rifle",
+	"ammoClip" : 5,
+	"ammoReserve" : 15,
+	"automatic" : false,
+	"damage" : 65,
+	"hitscan" : true,
+	"projectileCount" : 1,
+	"projectileSpeed" : "hitscan",
+	"projectileSpread" : 1,
+	"reloadTime" : 6,
+	"shotDelay" : 1.5
+}
+"bowArrow" : {
+	"name" : "Bow and Arrow",
+	"ammoClip" : 1,
+	"ammoReserve" : 12,
+	"automatic" : false,
+	"damage" : 55,
+	"hitscan" : false,
+	"projectileCount" : 1,
+	"projectileSpeed" : 1,
+	"projectileSpread" : 2,
+	"reloadTime" : 4,
+	"shotDelay" : 0
+}
+"laserRifle" : {
+	"name" : "Laser Rifle",
+	"ammoClip" : 6,
+	"ammoReserve" : 18,
+	"automatic" : false,
+	"damage" : 25,
+	"hitscan" : true,
+	"projectileCount" : 1,
+	"projectileSpeed" : "hitscan",
+	"projectileSpread" : 0,
+	"reloadTime" : 3,
+	"shotDelay" : 0.5
+}
+"pistol" : {
+	"name" : "Pistol",
+	"ammoClip" : 12,
+	"ammoReserve" : 36,
+	"automatic" : false,
+	"damage" : 10,
+	"hitscan" : true,
+	"projectileCount" : 1,
+	"projectileSpeed" : "hitscan",
+	"projectileSpread" : 2,
+	"reloadTime" : 2,
+	"shotDelay" : 0
+}
+"shotgun" : {
+	"name" : "Shotgun",
+	"ammoClip" : 2,
+	"ammoReserve" : 8,
+	"automatic" : false,
+	"damage" : 10,
+	"hitscan" : true,
+	"projectileCount" : 10,
+	"projectileSpeed" : "hitscan",
+	"projectileSpread" : 10,
+	"reloadTime" : 4,
+	"shotDelay" : 1
+}
+}
