@@ -146,6 +146,8 @@ public class PlayerShooting : MonoBehaviour {
 	}
 
 	public void UpdateHUD() {
+		ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
+		ammmagtxt = GameObject.Find ("amm_mag").GetComponent<Text> ();
 		ammvaltxt.text = currentAmmo.ToString();
 		ammmagtxt.text = reserveAmmo.ToString();
 	}
