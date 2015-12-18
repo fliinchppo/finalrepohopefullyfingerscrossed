@@ -53,6 +53,7 @@
      <Compile Include="Assets\GameAssets\Scripts\Menu\LoadoutMenu.cs" />
      <Compile Include="Assets\GameAssets\Scripts\Menu\MainMenu.cs" />
      <Compile Include="Assets\GameAssets\Scripts\Menu\sbMenu.cs" />
+     <Compile Include="Assets\GameAssets\Scripts\MouseLock.cs" />
      <Compile Include="Assets\GameAssets\Scripts\MouseLook.cs" />
      <Compile Include="Assets\GameAssets\Scripts\NetworkManager_v1.cs" />
      <Compile Include="Assets\GameAssets\Scripts\NetworkMenu.cs" />
