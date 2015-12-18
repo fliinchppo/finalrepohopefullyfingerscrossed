@@ -514,6 +514,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c1afd0a27bf2422f81c9daafc128456, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1165904758 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 105722, guid: 5146e6dcbd070874b8b5a2f212c155c3, type: 2}
+  m_PrefabInternal: {fileID: 1649362229}
+--- !u!114 &1165904770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1165904758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6907c74cee6ee4349aeea15a2ab92d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadoutWeapon1: assaultRifle
+  loadoutWeapon2: pistol
 --- !u!1001 &1450747112
 Prefab:
   m_ObjectHideFlags: 0
@@ -739,9 +756,23 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11474068, guid: 5146e6dcbd070874b8b5a2f212c155c3, type: 2}
+      propertyPath: ammvaltxt
+      value: 
+      objectReference: {fileID: 1779642337}
+    - target: {fileID: 11474068, guid: 5146e6dcbd070874b8b5a2f212c155c3, type: 2}
+      propertyPath: ammmagtxt
+      value: 
+      objectReference: {fileID: 1997988315}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5146e6dcbd070874b8b5a2f212c155c3, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1779642337 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11446516, guid: 618ca06cd2fcb18499daf96a7f15c35a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1514836384}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1793654686
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,3 +846,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &1997988315 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11462352, guid: 618ca06cd2fcb18499daf96a7f15c35a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1514836384}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}

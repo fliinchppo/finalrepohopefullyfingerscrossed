@@ -43,6 +43,7 @@ public class PlayerShooting : MonoBehaviour {
 	//-------Use this for initialization----------------------------------------------------------------------------------------------------------------------------------------
 	void Start () {
 		ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
+		ammmagtxt = GameObject.Find ("amm_mag").GetComponent<Text> ();
 
 		currentAmmo = clipSize;
 		sndSource = GetComponent<AudioSource>();
@@ -70,8 +71,8 @@ public class PlayerShooting : MonoBehaviour {
 			// play animation when called
 
 			print ("Reloading");
-
 			ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
+			ammmagtxt = GameObject.Find ("amm_mag").GetComponent<Text> ();
 
 			totalAmmo = clipSize + reserveAmmo;
 			if (totalAmmo <= clipSize) {
@@ -109,6 +110,7 @@ public class PlayerShooting : MonoBehaviour {
 	void hitscanShot() {
 		currentAmmo -= 1;
 		ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
+		ammmagtxt = GameObject.Find ("amm_mag").GetComponent<Text> ();
 
 		UpdateHUD ();
 		sndSource.PlayOneShot (gun_fire); 
