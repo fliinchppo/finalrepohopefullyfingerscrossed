@@ -3,33 +3,34 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerShooting : MonoBehaviour {
-	//-------Declare variables--------------------------------------------------------------------------------------------------------------------------------------------------
+	//-------Declare variables-----------------------------
+	public Animator anim;
 	public AudioClip gun_fire;
-	private AudioSource sndSource;
-	private bool canShoot = true;
-	private bool animFinished = true;
+	public bool automatic;
 	public bool hitscan;
 	public bool projectile;
-	public int damage;
-	private int currentAmmo;
-	public int clipSize;
-	public int reserveAmmo;
-	private int totalAmmo;
-	private int bulletsShot;				// make sure to reset this when killed and when weapon is swapped
-	public float shotInterval = 0.3f;
+	public float ejectSpeed;
 	public float gunRange;
-	public float ejectSpeed; 
-	public float reloadTime; 
-	private float shotTime;
-	public Text ammvaltxt;
-	public Text ammmagtxt;
-	public RaycastHit hitInfo;
-	public GameObject bulletCasing; 
-	public GameObject clone; 
-	private Rigidbody cloneRB;
-
-	public Animator anim;
+	public float reloadTime;
+	public float shotInterval;
+	public GameObject bulletCasing;
+	public GameObject clone;
 	public GameObject impactPrefab;
+	public int clipSize;
+	public int currentAmmo;
+	public int damage;
+	public int reserveAmmo;			// make sure to reset this when killed and when weapon is swapped
+	public Text ammmagtxt;
+	public Text ammvaltxt;
+	public RaycastHit hitInfo;
+
+	private AudioSource sndSource;
+	private bool animFinished = true;
+	private bool canShoot = true;
+	private float shotTime;
+	private int bulletsShot;
+	private int totalAmmo;
+	private Rigidbody cloneRB;	
 
 	//GameObject[] impacts;
 	//int currentImpacts = 0;
@@ -41,12 +42,12 @@ public class PlayerShooting : MonoBehaviour {
 
 	//-------Use this for initialization----------------------------------------------------------------------------------------------------------------------------------------
 	void Start () {
-		//ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
+		ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
 
 		currentAmmo = clipSize;
 		sndSource = GetComponent<AudioSource>();
-		//ammvaltxt.text = currentAmmo.ToString();
-		//ammmagtxt.text = reserveAmmo.ToString();
+		ammvaltxt.text = currentAmmo.ToString();
+		ammmagtxt.text = reserveAmmo.ToString();
 		bulletsShot = 0;
 
 		//impacts = new GameObject[maxImpacts];
@@ -57,7 +58,7 @@ public class PlayerShooting : MonoBehaviour {
 	
 	//-------Update is called once per frame------------------------------------------------------------------------------------------------------------------------------------
 	void FixedUpdate () {
-		if (Input.GetButton ("Fire1") && Time.time > shotTime && currentAmmo > 0 && canShoot == true && !Input.GetButton ("Sprint")) {
+		if (Input.GetButton ("Fire1") && currentAmmo > 0 && canShoot == true && !Input.GetButton ("Sprint")) {
 			gameObject.GetComponent<Animation> ().Play ("glock_fire");
 			shoot ();
 			shotTime = Time.time + shotInterval; // reset shot time
@@ -65,12 +66,12 @@ public class PlayerShooting : MonoBehaviour {
 			canShoot = false; 
 		}
 
-		if ((Input.GetButtonDown ("Reload") || currentAmmo == 0) && currentAmmo != clipSize && reserveAmmo != 0) {
+		if ((Input.GetButtonDown ("Reload") || currentAmmo == 0)&& currentAmmo != clipSize && reserveAmmo != 0) {
 			// play animation when called
 
 			print ("Reloading");
 
-			//ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
+			ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
 
 			totalAmmo = clipSize + reserveAmmo;
 			if (totalAmmo <= clipSize) {
@@ -82,12 +83,16 @@ public class PlayerShooting : MonoBehaviour {
 				reserveAmmo -= bulletsShot;
 			}
 
-			//ammvaltxt.text = currentAmmo.ToString();
-			//ammmagtxt.text = reserveAmmo.ToString();
+			ammvaltxt.text = currentAmmo.ToString();
+			ammmagtxt.text = reserveAmmo.ToString();
 			shotTime = Time.time + reloadTime;
 		}
 
-		if (Time.time > shotTime) {
+		if (automatic == true) { // Checks if weapon is automatic, if true, can hold down fire button to shoot
+			if (Time.time > shotTime) {
+				canShoot = true;
+			}
+		} else if (Input.GetButtonUp ("Fire1")) { // Else you have to let go of the button to fire another shot
 			canShoot = true;
 		}
 	}
@@ -103,9 +108,9 @@ public class PlayerShooting : MonoBehaviour {
 
 	void hitscanShot() {
 		currentAmmo -= 1;
-		//ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
-		//ammvaltxt.text = currentAmmo.ToString();
-		//ammmagtxt.text = reserveAmmo.ToString();
+		ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
+
+		UpdateHUD ();
 		sndSource.PlayOneShot (gun_fire); 
 
 		if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, gunRange)) {
@@ -136,5 +141,10 @@ public class PlayerShooting : MonoBehaviour {
 		clone = Instantiate (bulletCasing, transform.position, transform.rotation) as GameObject;
 		cloneRB = bulletCasing.GetComponent<Rigidbody> ();
 		cloneRB.velocity = transform.TransformDirection (Vector3.right * ejectSpeed);
+	}
+
+	public void UpdateHUD() {
+		ammvaltxt.text = currentAmmo.ToString();
+		ammmagtxt.text = reserveAmmo.ToString();
 	}
 }
