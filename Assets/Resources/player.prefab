@@ -65,6 +65,7 @@ GameObject:
   - 114: {fileID: 11421502}
   - 95: {fileID: 9518386}
   - 114: {fileID: 11467432}
+  - 114: {fileID: 11468802}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -2198,6 +2199,19 @@ MonoBehaviour:
   viewIdField: 0
   instantiationId: -1
   isRuntimeInstantiated: 0
+--- !u!114 &11468802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6907c74cee6ee4349aeea15a2ab92d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadoutWeapon1: assaultRifle
+  loadoutWeapon2: pistol
 --- !u!114 &11474068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2209,22 +2223,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2224de6ddd9aa2d4ebe00e2f141f8922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   gun_fire: {fileID: 8300000, guid: 44d693fc667d1b447926bcf515263d62, type: 3}
+  automatic: 0
   hitscan: 1
   projectile: 0
-  damage: 13
-  clipSize: 5
-  reserveAmmo: 10
-  shotInterval: .100000001
-  gunRange: 1000
   ejectSpeed: 2
+  gunRange: 1000
   reloadTime: 2
-  ammvaltxt: {fileID: 0}
-  ammmagtxt: {fileID: 0}
+  shotInterval: .100000001
   bulletCasing: {fileID: 0}
   clone: {fileID: 0}
-  anim: {fileID: 0}
   impactPrefab: {fileID: 0}
+  clipSize: 5
+  currentAmmo: 0
+  damage: 13
+  reserveAmmo: 10
+  ammmagtxt: {fileID: 0}
+  ammvaltxt: {fileID: 0}
 --- !u!114 &11488638
 MonoBehaviour:
   m_ObjectHideFlags: 1

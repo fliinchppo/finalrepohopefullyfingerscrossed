@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ExampleClass : MonoBehaviour {
+public class MouseLock : MonoBehaviour {
 	private bool wasLocked = false;
 
 	void Start() {
