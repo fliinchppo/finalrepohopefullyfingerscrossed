@@ -55,6 +55,7 @@
      <Compile Include="Assets\GameAssets\Scripts\Menu\sbMenu.cs" />
      <Compile Include="Assets\GameAssets\Scripts\MouseLock.cs" />
      <Compile Include="Assets\GameAssets\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\GameAssets\Scripts\NetworkCharacter.cs" />
      <Compile Include="Assets\GameAssets\Scripts\NetworkManager_v1.cs" />
      <Compile Include="Assets\GameAssets\Scripts\NetworkMenu.cs" />
      <Compile Include="Assets\GameAssets\Scripts\PlayerController.cs" />
@@ -64,7 +65,6 @@
      <Compile Include="Assets\GameAssets\Scripts\TweakADS.cs" />
      <Compile Include="Assets\GameAssets\Scripts\WeaponSwap.cs" />
      <Compile Include="Assets\GameAssets\Scripts\temp3rdperson.cs" />
-     <Compile Include="Assets\NetworkCharacter.cs" />
      <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\CustomTypes.cs" />
      <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Enums.cs" />
      <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Extensions.cs" />

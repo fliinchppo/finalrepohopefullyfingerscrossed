@@ -66,6 +66,7 @@ GameObject:
   - 95: {fileID: 9518386}
   - 114: {fileID: 11467432}
   - 114: {fileID: 11468802}
+  - 114: {fileID: 11475950}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -2194,7 +2195,7 @@ MonoBehaviour:
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
   ObservedComponents:
-  - {fileID: 11428098}
+  - {fileID: 11475950}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -2205,7 +2206,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105722}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6907c74cee6ee4349aeea15a2ab92d5a, type: 3}
   m_Name: 
@@ -2241,6 +2242,18 @@ MonoBehaviour:
   reserveAmmo: 10
   ammmagtxt: {fileID: 0}
   ammvaltxt: {fileID: 0}
+--- !u!114 &11475950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 105722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ef3881bc8f7bb547b8ef6ceed29ae23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smoothingParam: .100000001
 --- !u!114 &11488638
 MonoBehaviour:
   m_ObjectHideFlags: 1
