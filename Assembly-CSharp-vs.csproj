@@ -58,7 +58,10 @@
      <Compile Include="Assets\GameAssets\Scripts\NetworkMenu.cs" />
      <Compile Include="Assets\GameAssets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\GameAssets\Scripts\PlayerShooting.cs" />
+     <Compile Include="Assets\GameAssets\Scripts\PlayerSpawn.cs" />
+     <Compile Include="Assets\GameAssets\Scripts\SpawnSpot.cs" />
      <Compile Include="Assets\GameAssets\Scripts\TweakADS.cs" />
+     <Compile Include="Assets\GameAssets\Scripts\WeaponSwap.cs" />
      <Compile Include="Assets\GameAssets\Scripts\temp3rdperson.cs" />
      <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\CustomTypes.cs" />
      <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Enums.cs" />

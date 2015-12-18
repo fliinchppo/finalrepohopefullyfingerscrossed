@@ -41,12 +41,12 @@ public class PlayerShooting : MonoBehaviour {
 
 	//-------Use this for initialization----------------------------------------------------------------------------------------------------------------------------------------
 	void Start () {
-		ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
+		//ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
 
 		currentAmmo = clipSize;
 		sndSource = GetComponent<AudioSource>();
-		ammvaltxt.text = currentAmmo.ToString();
-		ammmagtxt.text = reserveAmmo.ToString();
+		//ammvaltxt.text = currentAmmo.ToString();
+		//ammmagtxt.text = reserveAmmo.ToString();
 		bulletsShot = 0;
 
 		//impacts = new GameObject[maxImpacts];
@@ -65,12 +65,12 @@ public class PlayerShooting : MonoBehaviour {
 			canShoot = false; 
 		}
 
-		if ((Input.GetButtonDown ("Reload") || currentAmmo == 0)&& currentAmmo != clipSize && reserveAmmo != 0) {
+		if ((Input.GetButtonDown ("Reload") || currentAmmo == 0) && currentAmmo != clipSize && reserveAmmo != 0) {
 			// play animation when called
 
 			print ("Reloading");
 
-			ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
+			//ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
 
 			totalAmmo = clipSize + reserveAmmo;
 			if (totalAmmo <= clipSize) {
@@ -82,8 +82,8 @@ public class PlayerShooting : MonoBehaviour {
 				reserveAmmo -= bulletsShot;
 			}
 
-			ammvaltxt.text = currentAmmo.ToString();
-			ammmagtxt.text = reserveAmmo.ToString();
+			//ammvaltxt.text = currentAmmo.ToString();
+			//ammmagtxt.text = reserveAmmo.ToString();
 			shotTime = Time.time + reloadTime;
 		}
 
@@ -103,9 +103,9 @@ public class PlayerShooting : MonoBehaviour {
 
 	void hitscanShot() {
 		currentAmmo -= 1;
-		ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
-		ammvaltxt.text = currentAmmo.ToString();
-		ammmagtxt.text = reserveAmmo.ToString();
+		//ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
+		//ammvaltxt.text = currentAmmo.ToString();
+		//ammmagtxt.text = reserveAmmo.ToString();
 		sndSource.PlayOneShot (gun_fire); 
 
 		if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, gunRange)) {

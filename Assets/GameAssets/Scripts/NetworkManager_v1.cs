@@ -1,15 +1,19 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 public class NetworkManager_v1 : MonoBehaviour {
 	//-------Declare variables--------------------------------------------------------------------------------------------------------------------------------------------------
 	private const string roomName = "RoomName";
 	private RoomInfo[] roomsList;
+	public Camera standbyCamera;
+	PlayerSpawn[] spawnSpots;
 
 	//-------Use this for initialization----------------------------------------------------------------------------------------------------------------------------------------
 	void Start () {
-		PhotonNetwork.ConnectUsingSettings("0.1");
+		PhotonNetwork.ConnectUsingSettings("arenafps 0.1");
+		spawnSpots = GameObject.FindObjectsOfType<PlayerSpawn> ();
 	}
 	
 	//-------Update is called once per frame------------------------------------------------------------------------------------------------------------------------------------
@@ -20,8 +24,7 @@ public class NetworkManager_v1 : MonoBehaviour {
 	void OnGUI() {
 		if (!PhotonNetwork.connected) {
 			GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
-		}
-		else if (PhotonNetwork.room == null) {
+		} else if (PhotonNetwork.room == null) {
 			// Create Room
 			if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server")) {
 				PhotonNetwork.CreateRoom(roomName + Guid.NewGuid().ToString("N"), new RoomOptions() { maxPlayers = 10}, null);
@@ -41,10 +44,33 @@ public class NetworkManager_v1 : MonoBehaviour {
 	void OnReceivedRoomListUpdate()	{
 		roomsList = PhotonNetwork.GetRoomList();
 	}
+
 	void OnJoinedRoom() {
-		Debug.Log("Connected to Room");
+		Debug.Log("Connected to: " + roomName.ToString());
 
 		// Spawn Player
-		PhotonNetwork.Instantiate ("player", Vector3.up * 5, Quaternion.identity, 0);
+		SpawnPlayer ();
+	}
+
+	void OnPhotonRandomJoinFailed() {
+		Debug.Log ("OnPhotonRandomJoinFailed");
+		PhotonNetwork.CreateRoom (null);
+	}
+
+	void SpawnPlayer() {
+		if (spawnSpots == null) {
+			Debug.LogError ("no spawn spots lol, add some noob");
+			return;
+		}
+
+		PlayerSpawn mySpawnSpot = spawnSpots[ Random.Range (0, spawnSpots.Length) ];
+		GameObject myPlayerGameObj = (GameObject) PhotonNetwork.Instantiate ("player", mySpawnSpot.transform.position, mySpawnSpot.transform.rotation, 0);
+		standbyCamera.enabled = false;
+		myPlayerGameObj.GetComponent<PlayerShooting> ().enabled = true;
+		myPlayerGameObj.GetComponent<MouseLook> ().enabled = true;
+		myPlayerGameObj.GetComponent<PlayerController> ().enabled = true;
+		myPlayerGameObj.GetComponent<GameUI> ().enabled = true;
+		myPlayerGameObj.GetComponent<PlayerShooting> ().enabled = true;
+		myPlayerGameObj.transform.FindChild ("playerCamera").gameObject.SetActive (true);
 	}
 }

@@ -54,6 +54,6 @@ public class WeaponSwap : MonoBehaviour {
 	}
 
 	void SetWeapon(int w) {
-		var  = GetComponent<AudioSource>();
+		//var  = GetComponent<AudioSource>();
 	}
 }
