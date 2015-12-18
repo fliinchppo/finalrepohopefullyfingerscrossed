@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\GameAssets\Scripts\BetterPlayerMovement.cs" />
      <Compile Include="Assets\GameAssets\Scripts\CamShift.cs" />
      <Compile Include="Assets\GameAssets\Scripts\CrouchController.cs" />
      <Compile Include="Assets\GameAssets\Scripts\GameController.cs" />
@@ -58,6 +59,7 @@
      <Compile Include="Assets\GameAssets\Scripts\NetworkCharacter.cs" />
      <Compile Include="Assets\GameAssets\Scripts\NetworkManager_v1.cs" />
      <Compile Include="Assets\GameAssets\Scripts\NetworkMenu.cs" />
+     <Compile Include="Assets\GameAssets\Scripts\PlayerAnimation.cs" />
      <Compile Include="Assets\GameAssets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\GameAssets\Scripts\PlayerShooting.cs" />
      <Compile Include="Assets\GameAssets\Scripts\PlayerSpawn.cs" />
@@ -126,6 +128,7 @@
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />
      <None Include="Assets\Plugins\release_history.txt" />
+     <None Include="Assets\Raw Mocap Data\Animations\_CompleteAnimationList.txt" />
      <None Include="Assets\Photon Unity Networking\readme.txt" />
      <None Include="Assets\Photon Unity Networking\changelog.txt" />
  <Reference Include="UnityEngine.UI">

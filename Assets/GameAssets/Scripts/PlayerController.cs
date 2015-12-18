@@ -3,11 +3,11 @@ using System.Collections;
 
 public class PlayerController : Photon.MonoBehaviour {
 	//-------Declare variables--------------------------------------------------------------------------------------------------------------------------------------------------
-	public float pSpeed = 12f;
-	public float pJSpeed = 8f;
+	public float jumpSpeed = 8f;
 	public float gravity = 20f;
-	public float sprintModifier = 2f;
-
+	public float normalSpeed = 12f;
+	public float sprintSpeed = 20f;
+	private float movementSpeed;
 	private bool isSprinting;
 	private bool hasJumped;
 	private Vector3 movementDirection = Vector3.zero;
@@ -19,7 +19,7 @@ public class PlayerController : Photon.MonoBehaviour {
 
 	//-------Update is called once per frame------------------------------------------------------------------------------------------------------------------------------------
 	void FixedUpdate () {
-			movement ();
+		movement ();
 	}
 
 	void movement() {
@@ -33,11 +33,11 @@ public class PlayerController : Photon.MonoBehaviour {
 			movementDirection = transform.TransformDirection (-movementDirection);	
 
 			//-------Move in input direction at defined speed-------------------------------------------------------------------------------------------------------------------
-			movementDirection *= pSpeed;	
+			movementDirection *= movementSpeed;	
 
 			//-------Jumping----------------------------------------------------------------------------------------------------------------------------------------------------
 			if (Input.GetButtonDown ("Jump") && hasJumped == false) {
-				movementDirection.y = pJSpeed;
+				movementDirection.y = movementSpeed;
 				hasJumped = true;
 			}
 
@@ -46,13 +46,11 @@ public class PlayerController : Photon.MonoBehaviour {
 			}
 
 			//-------Sprinting--------------------------------------------------------------------------------------------------------------------------------------------------
-			if (Input.GetKeyDown (KeyCode.LeftShift)) {
-				pSpeed *= sprintModifier;
+			if (Input.GetButton ("Sprint")) {
+				movementSpeed = sprintSpeed;
 				isSprinting = true;
-			}	
-
-			if (Input.GetKeyUp (KeyCode.LeftShift)) {
-				pSpeed = pSpeed / sprintModifier;
+			} else {
+				movementSpeed = normalSpeed;
 				isSprinting = false;
 			}
 		}

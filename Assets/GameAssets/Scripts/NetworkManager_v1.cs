@@ -71,7 +71,7 @@ public class NetworkManager_v1 : MonoBehaviour {
 		myPlayerGameObj.GetComponent<MouseLook> ().enabled = true;
 		myPlayerGameObj.GetComponent<NetworkCharacter> ().enabled = true;
 		myPlayerGameObj.GetComponent<PlayerShooting> ().enabled = true;
-		myPlayerGameObj.GetComponent<PlayerController> ().enabled = true;
+		myPlayerGameObj.GetComponent<BetterPlayerMovement> ().enabled = true;
 		myPlayerGameObj.GetComponent<WeaponSwap> ().enabled = true;
 		myPlayerGameObj.transform.FindChild ("playerCamera").gameObject.SetActive (true);
 	}
