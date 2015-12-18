@@ -1,21 +1,36 @@
 ﻿{
+"TEMPLATE" : {
+	"name" : "string, Name of weapon",
+	"ammoClip" : "int, No. bullets in clip",
+	"ammoReserveMax" : "int, No. spare bullets",
+	"automatic" : "bool, true = hold down to shoot",
+	"damage" : "int, Damage dealt per bullet",
+	"hitscan" : "bool, Whether hit detection is hitscan or not",
+	"projectileCount" : "int, No. bullets per shot",
+	"projectileSpeed" : "int, Speed of projectile when hitscan is false",
+	"projectileSpread" : "float, Spread of bullets in degrees",
+	"reloadTime" : "float, Time taken to reload",
+	"shotInterval" : "float, Time between shots",
+	"spreadGain" : "float, Amount spread increases per bullet",
+	"spreadDecay" : "float, Time taken for spread to go to normal"
+}
 "assaultRifle" : {
 	"name" : "Assault Rifle",
-	"damage" : 3,
 	"ammoClip" : 32,
-	"ammoReserve" : 96,
+	"ammoReserveMax" : 96,
 	"automatic" : true,
+	"damage" : 5,
 	"hitscan" : true,
 	"projectileCount" : 1,
 	"projectileSpeed" : "hitscan",
 	"projectileSpread" : 5,
 	"reloadTime" : 4,
-	"shotDelay" : 0.05
+	"shotInterval" : 0.05
 }
 "boltActionRifle" : {
 	"name" : "Bolt-Action Rifle",
-	"ammoClip" : 5,
-	"ammoReserve" : 15,
+	"ammoClip" : 1,
+	"ammoReserveMax" : 15,
 	"automatic" : false,
 	"damage" : 65,
 	"hitscan" : true,
@@ -23,12 +38,12 @@
 	"projectileSpeed" : "hitscan",
 	"projectileSpread" : 1,
 	"reloadTime" : 6,
-	"shotDelay" : 1.5
+	"shotInterval" : 1.5
 }
 "bowArrow" : {
 	"name" : "Bow and Arrow",
 	"ammoClip" : 1,
-	"ammoReserve" : 12,
+	"ammoReserveMax" : 12,
 	"automatic" : false,
 	"damage" : 55,
 	"hitscan" : false,
@@ -36,12 +51,12 @@
 	"projectileSpeed" : 1,
 	"projectileSpread" : 2,
 	"reloadTime" : 4,
-	"shotDelay" : 0
+	"shotInterval" : 0
 }
 "laserRifle" : {
 	"name" : "Laser Rifle",
 	"ammoClip" : 6,
-	"ammoReserve" : 18,
+	"ammoReserveMax" : 18,
 	"automatic" : false,
 	"damage" : 25,
 	"hitscan" : true,
@@ -49,12 +64,12 @@
 	"projectileSpeed" : "hitscan",
 	"projectileSpread" : 0,
 	"reloadTime" : 3,
-	"shotDelay" : 0.5
+	"shotInterval" : 0.5
 }
 "pistol" : {
 	"name" : "Pistol",
 	"ammoClip" : 12,
-	"ammoReserve" : 36,
+	"ammoReserveMax" : 36,
 	"automatic" : false,
 	"damage" : 10,
 	"hitscan" : true,
@@ -62,12 +77,12 @@
 	"projectileSpeed" : "hitscan",
 	"projectileSpread" : 2,
 	"reloadTime" : 2,
-	"shotDelay" : 0
+	"shotInterval" : 1
 }
 "shotgun" : {
 	"name" : "Shotgun",
 	"ammoClip" : 2,
-	"ammoReserve" : 8,
+	"ammoReserveMax" : 8,
 	"automatic" : false,
 	"damage" : 10,
 	"hitscan" : true,
@@ -75,6 +90,6 @@
 	"projectileSpeed" : "hitscan",
 	"projectileSpread" : 10,
 	"reloadTime" : 4,
-	"shotDelay" : 1
+	"shotInterval" : 1
 }
 }
