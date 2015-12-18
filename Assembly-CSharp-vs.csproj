@@ -64,6 +64,7 @@
      <Compile Include="Assets\GameAssets\Scripts\TweakADS.cs" />
      <Compile Include="Assets\GameAssets\Scripts\WeaponSwap.cs" />
      <Compile Include="Assets\GameAssets\Scripts\temp3rdperson.cs" />
+     <Compile Include="Assets\NetworkCharacter.cs" />
      <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\CustomTypes.cs" />
      <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Enums.cs" />
      <Compile Include="Assets\Photon Unity Networking\Plugins\PhotonNetwork\Extensions.cs" />

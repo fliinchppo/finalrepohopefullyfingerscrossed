@@ -829,7 +829,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149662}
   m_LocalRotation: {x: .707106829, y: .707106709, z: -1.15202326e-07, w: -1.15202312e-07}
-  m_LocalPosition: {x: -0, y: .0540000014, z: .638000011}
+  m_LocalPosition: {x: -.800000012, y: .805000007, z: -1.84000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 405340}
@@ -1429,7 +1429,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.96000004, z: .5}
+  m_LocalPosition: {x: -.800000012, y: 5.80499983, z: -1.84000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 405340}
@@ -2154,7 +2154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e12a7625e1a613746af18547552d14bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CrouchHeight: 5
+  CrouchHeight: -3.29999995
   CrouchSmoothTime: .25
 --- !u!114 &11441256
 MonoBehaviour:
