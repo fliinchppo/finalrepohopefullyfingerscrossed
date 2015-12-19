@@ -370,6 +370,7 @@ Prefab:
       propertyPath: instantiationId
       value: 1
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 186526, guid: 5146e6dcbd070874b8b5a2f212c155c3, type: 2}
       propertyPath: m_IsActive
       value: 0
@@ -397,6 +398,15 @@ Prefab:
     - target: {fileID: 167186, guid: 5146e6dcbd070874b8b5a2f212c155c3, type: 2}
       propertyPath: m_Name
       value: GunBody
+=======
+    - target: {fileID: 199008, guid: 5146e6dcbd070874b8b5a2f212c155c3, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 493018, guid: 5146e6dcbd070874b8b5a2f212c155c3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: .351999998
+>>>>>>> 897671f080571e15952d9c1c01dff127096bf08d
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5146e6dcbd070874b8b5a2f212c155c3, type: 2}
