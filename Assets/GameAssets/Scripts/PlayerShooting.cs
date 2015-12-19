@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -6,23 +6,15 @@ public class PlayerShooting : MonoBehaviour {
 	//-------Declare variables-----------------------------
 	public Animator anim;
 	public AudioClip gun_fire;
-	public bool automatic;
-	public bool hitscan;
-	public bool projectile;
 	public float ejectSpeed;
 	public float gunRange;
-	public float reloadTime;
-	public float shotInterval;
 	public GameObject bulletCasing;
 	public GameObject clone;
 	public GameObject impactPrefab;
-	public int clipSize;
-	public int currentAmmo;
-	public int damage;
-	public int reserveAmmo;			// make sure to reset this when killed and when weapon is swapped
 	public Text ammmagtxt;
 	public Text ammvaltxt;
 	public RaycastHit hitInfo;
+	public WeaponContainer cW;
 
 	private AudioSource sndSource;
 	private bool animFinished = true;
@@ -45,10 +37,8 @@ public class PlayerShooting : MonoBehaviour {
 		ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
 		ammmagtxt = GameObject.Find ("amm_mag").GetComponent<Text> ();
 
-		currentAmmo = clipSize;
 		sndSource = GetComponent<AudioSource>();
-		ammvaltxt.text = currentAmmo.ToString();
-		ammmagtxt.text = reserveAmmo.ToString();
+		UpdateHUD ();
 		bulletsShot = 0;
 
 		//impacts = new GameObject[maxImpacts];
@@ -59,37 +49,37 @@ public class PlayerShooting : MonoBehaviour {
 	
 	//-------Update is called once per frame------------------------------------------------------------------------------------------------------------------------------------
 	void FixedUpdate () {
-		if (Input.GetButton ("Fire1") && currentAmmo > 0 && canShoot == true && !Input.GetButton ("Sprint")) {
+		if (Input.GetButton ("Fire1") && cW.currentAmmo > 0 && canShoot == true && !Input.GetButton ("Sprint")) {
 			gameObject.GetComponent<Animation> ().Play ("glock_fire");
 			shoot ();
-			shotTime = Time.time + shotInterval; // reset shot time
+			shotTime = Time.time + cW.shotInterval; // reset shot time
 			// casingEject();
 			canShoot = false; 
 		}
 
-		if ((Input.GetButtonDown ("Reload") || currentAmmo == 0)&& currentAmmo != clipSize && reserveAmmo != 0) {
+		if ((Input.GetButtonDown ("Reload") || cW.currentAmmo == 0)&& cW.currentAmmo != cW.clipSize && cW.reserveAmmo != 0) {
 			// play animation when called
 
 			print ("Reloading");
 			ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
 			ammmagtxt = GameObject.Find ("amm_mag").GetComponent<Text> ();
 
-			totalAmmo = clipSize + reserveAmmo;
-			if (totalAmmo <= clipSize) {
-				currentAmmo = totalAmmo;
-				reserveAmmo = 0;
+			totalAmmo = cW.clipSize + cW.reserveAmmo;
+			if (totalAmmo <= cW.clipSize) {
+				cW.currentAmmo = totalAmmo;
+				cW.reserveAmmo = 0;
 			} else {
-				bulletsShot = clipSize - currentAmmo;
-				currentAmmo = clipSize;
-				reserveAmmo -= bulletsShot;
+				bulletsShot = cW.clipSize - cW.currentAmmo;
+				cW.currentAmmo = cW.clipSize;
+				cW.reserveAmmo -= bulletsShot;
 			}
 
-			ammvaltxt.text = currentAmmo.ToString();
-			ammmagtxt.text = reserveAmmo.ToString();
-			shotTime = Time.time + reloadTime;
+			ammvaltxt.text = cW.currentAmmo.ToString();
+			ammmagtxt.text = cW.reserveAmmo.ToString();
+			shotTime = Time.time + cW.reloadTime;
 		}
 
-		if (automatic == true) { // Checks if weapon is automatic, if true, can hold down fire button to shoot
+		if (cW.automatic == true) { // Checks if weapon is automatic, if true, can hold down fire button to shoot
 			if (Time.time > shotTime) {
 				canShoot = true;
 			}
@@ -99,16 +89,16 @@ public class PlayerShooting : MonoBehaviour {
 	}
 
 	void shoot() {
-		if (hitscan == true) {
+		if (cW.hitscan == true) {
 			hitscanShot ();
-		} else if (projectile == true) {
+		} else if (cW.projectile == true) {
 			// projectileShot();
 		} else {
 		}
 	}
 
 	void hitscanShot() {
-		currentAmmo -= 1;
+		cW.currentAmmo -= 1;
 		ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
 		ammmagtxt = GameObject.Find ("amm_mag").GetComponent<Text> ();
 
@@ -117,11 +107,11 @@ public class PlayerShooting : MonoBehaviour {
 
 		if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, gunRange)) {
 			if (hitInfo.transform.tag == "wall") {  
-				Debug.Log("shot " + hitInfo.transform.tag + " for " + damage + " damage.");
+				Debug.Log("shot " + hitInfo.transform.tag + " for " + cW.damage + " damage.");
 			}
 
 			if (hitInfo.transform.tag == "terrain")	{  
-				Debug.Log("shot " + hitInfo.transform.tag + " for " + damage + " damage.");
+				Debug.Log("shot " + hitInfo.transform.tag + " for " + cW.damage + " damage.");
 			}
 
 			//if (hitInfo.transform.tag == "enemy") {  
@@ -148,7 +138,8 @@ public class PlayerShooting : MonoBehaviour {
 	public void UpdateHUD() {
 		ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
 		ammmagtxt = GameObject.Find ("amm_mag").GetComponent<Text> ();
-		ammvaltxt.text = currentAmmo.ToString();
-		ammmagtxt.text = reserveAmmo.ToString();
+		ammvaltxt.text = cW.currentAmmo.ToString();
+		ammmagtxt.text = cW.reserveAmmo.ToString();
 	}
 }
+
