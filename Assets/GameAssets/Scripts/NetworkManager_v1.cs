@@ -22,16 +22,14 @@ public class NetworkManager_v1 : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
-
 		if (!PhotonNetwork.connected) {
-			if (PhotonNetwork.room == null) {
-				// Create Room
-				if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server")) {
-					PhotonNetwork.CreateRoom(roomName + Guid.NewGuid().ToString("N"), new RoomOptions() { maxPlayers = 10}, null);
-				}
+			GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
+		} else if (PhotonNetwork.room == null) {
+			// Create Room
+			if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server")) {
+				PhotonNetwork.CreateRoom(roomName + Guid.NewGuid().ToString("N"), new RoomOptions() { maxPlayers = 10}, null);
 			}
-			
+
 			// Join Room
 			if (roomsList != null) {
 				for (int i = 0; i < roomsList.Length; i++) {
