@@ -29,12 +29,8 @@ public class BetterPlayerMovement : MonoBehaviour {
 	void Update () {
 		direction = transform.rotation * new Vector3 (Input.GetAxis ("Horizontal"), 0, Input.GetAxis ("Vertical"));
 
-		//if (direction.magnitude > 1f) {
-		//	direction = direction.normalized;
-		//}
-
-		anim.SetFloat ("Vspeed", Input.GetAxis ("Vertical"));
 		anim.SetFloat ("Hspeed", Input.GetAxis ("Horizontal"));
+		anim.SetFloat ("Vspeed", Input.GetAxis ("Vertical"));
 
 		if (cc.isGrounded && Input.GetButtonDown("Jump")) {
 			verticalVelocity = jumpSpeed;

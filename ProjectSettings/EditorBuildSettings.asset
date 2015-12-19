@@ -37,5 +37,7 @@ EditorBuildSettings:
     path: Assets/Scenes/debug.unity
   - enabled: 0
     path: Assets/Scenes/networktest.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BaseBattle.unity
+  - enabled: 1
+    path: Assets/Scenes/Roundhouse.unity
