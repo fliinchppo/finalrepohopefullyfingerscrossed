@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+using SimpleJSON;
 
 public class PlayerShooting : MonoBehaviour {
 	//-------Declare variables-----------------------------
@@ -11,17 +13,21 @@ public class PlayerShooting : MonoBehaviour {
 	public GameObject bulletCasing;
 	public GameObject clone;
 	public GameObject impactPrefab;
+	public string loadoutWeapon1 = "pistol";
+	public string loadoutWeapon2 = "assaultRifle";
 	public Text ammmagtxt;
 	public Text ammvaltxt;
 	public RaycastHit hitInfo;
-	public WeaponContainer cW;
-
+	public WeaponContainer cW = new WeaponContainer ();
+	
 	private AudioSource sndSource;
 	private bool animFinished = true;
 	private bool canShoot = true;
 	private float shotTime;
 	private int bulletsShot;
 	private int totalAmmo;
+	private int wSlot = 0;
+	private List<WeaponContainer> weapons = new List<WeaponContainer>();
 	private Rigidbody cloneRB;	
 
 	//GameObject[] impacts;
@@ -34,6 +40,23 @@ public class PlayerShooting : MonoBehaviour {
 
 	//-------Use this for initialization----------------------------------------------------------------------------------------------------------------------------------------
 	void Start () {
+		TextAsset jsonList = Resources.Load ("weaponsList") as TextAsset; // Load weapons list json file
+		var weaponList = JSON.Parse (jsonList.text); // Parse weapon file
+
+		
+		// Get chosen loadout weapons and store as WeaponContainer class
+
+		WeaponContainer w1 = new WeaponContainer (weaponList [loadoutWeapon1]);
+		WeaponContainer w2 = new WeaponContainer (weaponList [loadoutWeapon2]);
+		Debug.Log (weaponList [loadoutWeapon1]);
+		Debug.Log (weaponList [loadoutWeapon2]);
+		
+		// Add WeaponContainers to weapons list
+		weapons.Add (w1);
+		weapons.Add (w2);
+		
+		SetWeapon (0); // Equip weapon in wSlot 0
+
 		ammvaltxt = GameObject.Find ("amm_val").GetComponent<Text> ();
 		ammmagtxt = GameObject.Find ("amm_mag").GetComponent<Text> ();
 
@@ -41,14 +64,21 @@ public class PlayerShooting : MonoBehaviour {
 		UpdateHUD ();
 		bulletsShot = 0;
 
+		Debug.Log (weapons);
+
 		//impacts = new GameObject[maxImpacts];
 		//for (int i = 0; i < maxImpacts; i++) {
 		//	impacts[i] = (GameObject)Instantiate(impactPrefab);
 		//}
 	}
-	
+
+	void Update () {
+		Swap ();
+	}
+
 	//-------Update is called once per frame------------------------------------------------------------------------------------------------------------------------------------
 	void FixedUpdate () {
+
 		if (Input.GetButton ("Fire1") && cW.currentAmmo > 0 && canShoot == true && !Input.GetButton ("Sprint")) {
 			gameObject.GetComponent<Animation> ().Play ("glock_fire");
 			shoot ();
@@ -85,6 +115,41 @@ public class PlayerShooting : MonoBehaviour {
 			}
 		} else if (Input.GetButtonUp ("Fire1")) { // Else you have to let go of the button to fire another shot
 			canShoot = true;
+		}
+	}
+	
+	void SetWeapon (int w) { // Set the current weapon to weapons [w]
+
+		cW = weapons [w];
+		
+		UpdateHUD ();
+		
+		Debug.Log (w);
+	}
+
+	void Swap () {		
+		var mwheelInput = Input.GetAxis("Mouse ScrollWheel");
+		if (Input.GetButton ("SwapWeapon")) {
+			if (wSlot == 0) {
+				// swap to weapon slot 2 in array
+				wSlot = 1;
+			} else if (wSlot == 1) {
+				// swap to weapon slot 1 in array
+				wSlot = 0;
+			}
+			SetWeapon(wSlot);
+		}
+		
+		if (mwheelInput > 0f) {
+			// scroll up, swap to weapon slot 1 in array
+			wSlot = 0;
+			SetWeapon(wSlot);
+		}
+		
+		if (mwheelInput < 0f) {
+			// scroll down, swap to weapon slot 2 in array
+			wSlot = 1;
+			SetWeapon(wSlot);
 		}
 	}
 

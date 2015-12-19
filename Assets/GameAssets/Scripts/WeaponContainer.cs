@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using SimpleJSON;
 
-public class WeaponContainer : MonoBehaviour {
+public class WeaponContainer {
 	
 	public bool automatic;
 	public bool hitscan;
@@ -15,12 +15,21 @@ public class WeaponContainer : MonoBehaviour {
 	public int reserveAmmo;	// make sure to reset this when killed and when weapon is swapped
 	public int reserveAmmoMax;
 
-	// Use this for initialization
+	// Constructor when no arguments are passed
+	public WeaponContainer () {
+	}
+	// Initialize weapon
 	public WeaponContainer (JSONNode wep) {
-		clipSize	= wep ["ammoClip"].AsInt;
-		currentAmmo = wep ["ammoClip"].AsInt;
-		reserveAmmo    = wep ["ammoReserveMax"].AsInt;
+		Debug.Log (wep);
+		SetValues(wep);
+	}
+
+	public void SetValues (JSONNode wep) {
+		Debug.Log (wep);
+		clipSize = wep ["ammoClip"].AsInt;
+		currentAmmo = clipSize;
 		reserveAmmoMax = wep ["ammoReserveMax"].AsInt;
+		reserveAmmo = reserveAmmo;
 		automatic = wep ["automatic"].AsBool;
 		damage = wep ["damage"].AsInt;
 		hitscan = wep ["hitscan"].AsBool;

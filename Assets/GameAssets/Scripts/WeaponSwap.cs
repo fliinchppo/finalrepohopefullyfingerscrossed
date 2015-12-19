@@ -90,7 +90,7 @@ public class WeaponSwap : MonoBehaviour {
 		Debug.Log (weapons [w]);
 	}
 
-	void SaveWeaponAmmo (int w) { // Saves the amount of ammo in the weapon *DEPRECATED*
+/*	void SaveWeaponAmmo (int w) { // Saves the amount of ammo in the weapon *DEPRECATED*
 		PlayerShooting weapon = GetComponent<PlayerShooting>();
 		if (w == 0) {
 			w = 1;
@@ -100,6 +100,6 @@ public class WeaponSwap : MonoBehaviour {
 		weapons [w] ["currentAmmo"].AsInt = weapon.currentAmmo;
 		weapons [w] ["reserveAmmo"].AsInt = weapon.reserveAmmo;
 		Debug.Log ("Current " + weapon.currentAmmo.ToString());
-	}
+	}*/
 }
 

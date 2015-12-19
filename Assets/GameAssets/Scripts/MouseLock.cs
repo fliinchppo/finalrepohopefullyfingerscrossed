@@ -13,7 +13,7 @@ public class MouseLock : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetKeyDown ("escape")) {
+		if (Input.GetKeyDown ("Escape")) {
 			Screen.lockCursor = false;
 		}
 

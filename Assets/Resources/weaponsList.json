@@ -13,7 +13,7 @@
 	"shotInterval" : "float, Time between shots",
 	"spreadGain" : "float, Amount spread increases per bullet",
 	"spreadDecay" : "float, Time taken for spread to go to normal"
-}
+},
 "assaultRifle" : {
 	"name" : "Assault Rifle",
 	"ammoClip" : 32,
@@ -26,7 +26,7 @@
 	"projectileSpread" : 5,
 	"reloadTime" : 4,
 	"shotInterval" : 0.05
-}
+},
 "boltActionRifle" : {
 	"name" : "Bolt-Action Rifle",
 	"ammoClip" : 1,
@@ -39,7 +39,7 @@
 	"projectileSpread" : 1,
 	"reloadTime" : 6,
 	"shotInterval" : 1.5
-}
+},
 "bowArrow" : {
 	"name" : "Bow and Arrow",
 	"ammoClip" : 1,
@@ -52,7 +52,7 @@
 	"projectileSpread" : 2,
 	"reloadTime" : 4,
 	"shotInterval" : 0
-}
+},
 "laserRifle" : {
 	"name" : "Laser Rifle",
 	"ammoClip" : 6,
@@ -65,7 +65,7 @@
 	"projectileSpread" : 0,
 	"reloadTime" : 3,
 	"shotInterval" : 0.5
-}
+},
 "pistol" : {
 	"name" : "Pistol",
 	"ammoClip" : 12,
@@ -78,7 +78,7 @@
 	"projectileSpread" : 2,
 	"reloadTime" : 2,
 	"shotInterval" : 1
-}
+},
 "shotgun" : {
 	"name" : "Shotgun",
 	"ammoClip" : 2,
