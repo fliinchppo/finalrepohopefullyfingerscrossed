@@ -69,7 +69,7 @@ GameObject:
   - 114: {fileID: 11474578}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -755,7 +755,7 @@ GameObject:
   - 114: {fileID: 11488638}
   m_Layer: 0
   m_Name: playerCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2007,7 +2007,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105722}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 661bf8c09a1b7e9459f05a25f2167f29, type: 3}
   m_Controller: {fileID: 9100000, guid: 36168df1e47db3c43b8891ea163422aa, type: 2}
   m_CullingMode: 0

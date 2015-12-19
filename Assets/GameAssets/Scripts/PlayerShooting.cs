@@ -170,23 +170,25 @@ public class PlayerShooting : MonoBehaviour {
 		UpdateHUD ();
 		sndSource.PlayOneShot (gun_fire); 
 
-		if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, gunRange)) {
+		if (Physics.Raycast (Camera.main.transform.position, Camera.main.transform.forward, out hitInfo, gunRange)) {
 			if (hitInfo.transform.tag == "wall") {  
-				Debug.Log("shot " + hitInfo.transform.tag + " for " + cW.damage + " damage.");
+				Debug.Log ("shot " + hitInfo.transform.tag + " for " + cW.damage + " damage.");
 			}
 
-			if (hitInfo.transform.tag == "terrain")	{  
-				Debug.Log("shot " + hitInfo.transform.tag + " for " + cW.damage + " damage.");
+			if (hitInfo.transform.tag == "terrain") {  
+				Debug.Log ("shot " + hitInfo.transform.tag + " for " + cW.damage + " damage.");
 			}
 
 			//if (hitInfo.transform.tag == "enemy") {  
 			//	enemy hp = hitInfo.collider.GetComponent<enemy>();
-				//if (hp != null) {
-				//	hp.applyDamage (damage, hitInfo.point);
-				//}
+			//if (hp != null) {
+			//	hp.applyDamage (damage, hitInfo.point);
+			//}
 			//	hitInfo.collider.gameObject.SendMessage("applyDamage", damage);
 			//	Debug.Log("shot " + hitInfo.transform.tag + " for " + damage + " damage.");
 			//}
+		} else {
+
 		}
 	}
 
@@ -207,4 +209,3 @@ public class PlayerShooting : MonoBehaviour {
 		ammmagtxt.text = cW.reserveAmmo.ToString();
 	}
 }
-
