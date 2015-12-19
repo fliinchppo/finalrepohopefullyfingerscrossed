@@ -14,6 +14,8 @@ public class MainMenu : MonoBehaviour {
 	public Button loadoutClick;
 	public Button optionsClick;
 
+	private bool toggle;
+
 	//-------Use this for initialization----------------------------------------------------------------------------------------------------------------------------------------
 	void Start () {
 		quitMenu.enabled = false;

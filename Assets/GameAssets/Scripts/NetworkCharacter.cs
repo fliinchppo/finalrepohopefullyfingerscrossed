@@ -5,7 +5,7 @@ public class NetworkCharacter : Photon.MonoBehaviour {
 	//-------Declare variables-------------------------------------------------------------------------------------------------------------------------
 	Vector3 realPosition = Vector3.zero;
 	Quaternion realRotation = Quaternion.identity;
-	public float smoothingParam = 0.1f; // how often position updates 
+	public float smoothingParam = 0.1f; // how often position updates (decrease for faster updates)
 	Animator anim;
 
 
