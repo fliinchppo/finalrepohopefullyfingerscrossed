@@ -31,7 +31,7 @@ public class BetterPlayerMovement : MonoBehaviour {
 			direction = direction.normalized;
 		}
 
-		anim.SetFloat ("Vspeed", direction.magnitude);
+		anim.SetFloat ("Vspeed", Input.GetAxis ("Vertical"));
 		anim.SetFloat ("Hspeed", Input.GetAxis ("Horizontal"));
 	}
 
