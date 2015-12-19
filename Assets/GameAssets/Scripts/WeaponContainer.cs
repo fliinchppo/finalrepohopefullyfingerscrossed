@@ -20,16 +20,14 @@ public class WeaponContainer {
 	}
 	// Initialize weapon
 	public WeaponContainer (JSONNode wep) {
-		Debug.Log (wep);
 		SetValues(wep);
 	}
 
 	public void SetValues (JSONNode wep) {
-		Debug.Log (wep);
 		clipSize = wep ["ammoClip"].AsInt;
 		currentAmmo = clipSize;
 		reserveAmmoMax = wep ["ammoReserveMax"].AsInt;
-		reserveAmmo = reserveAmmo;
+		reserveAmmo = reserveAmmoMax;
 		automatic = wep ["automatic"].AsBool;
 		damage = wep ["damage"].AsInt;
 		hitscan = wep ["hitscan"].AsBool;
