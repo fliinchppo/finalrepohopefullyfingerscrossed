@@ -65,7 +65,6 @@ GameObject:
   - 114: {fileID: 11421502}
   - 95: {fileID: 9518386}
   - 114: {fileID: 11467432}
-  - 114: {fileID: 11468802}
   - 114: {fileID: 11475950}
   - 114: {fileID: 11474578}
   m_Layer: 0
@@ -756,7 +755,7 @@ GameObject:
   - 114: {fileID: 11488638}
   m_Layer: 0
   m_Name: playerCamera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -867,7 +866,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152956}
   m_LocalRotation: {x: .707106829, y: .707106709, z: -1.15202326e-07, w: -1.15202312e-07}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: -.0900000036}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400394}
@@ -1431,7 +1430,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: .783999979}
+  m_LocalPosition: {x: 0, y: 4.97300005, z: .74000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 405340}
@@ -2008,7 +2007,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105722}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 661bf8c09a1b7e9459f05a25f2167f29, type: 3}
   m_Controller: {fileID: 9100000, guid: 36168df1e47db3c43b8891ea163422aa, type: 2}
   m_CullingMode: 0
@@ -2201,19 +2200,6 @@ MonoBehaviour:
   viewIdField: 0
   instantiationId: -1
   isRuntimeInstantiated: 0
---- !u!114 &11468802
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105722}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6907c74cee6ee4349aeea15a2ab92d5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadoutWeapon1: assaultRifle
-  loadoutWeapon2: pistol
 --- !u!114 &11474068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2227,20 +2213,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   gun_fire: {fileID: 8300000, guid: 44d693fc667d1b447926bcf515263d62, type: 3}
-  automatic: 0
-  hitscan: 1
-  projectile: 0
   ejectSpeed: 2
   gunRange: 1000
-  reloadTime: 2
-  shotInterval: .100000001
   bulletCasing: {fileID: 0}
   clone: {fileID: 0}
   impactPrefab: {fileID: 0}
-  clipSize: 5
-  currentAmmo: 0
-  damage: 13
-  reserveAmmo: 10
+  loadoutWeapon1: pistol
+  loadoutWeapon2: assaultRifle
   ammmagtxt: {fileID: 0}
   ammvaltxt: {fileID: 0}
 --- !u!114 &11474578
@@ -2255,6 +2234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  jumpSpeed: 15
 --- !u!114 &11475950
 MonoBehaviour:
   m_ObjectHideFlags: 1
