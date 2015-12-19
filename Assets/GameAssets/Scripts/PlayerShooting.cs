@@ -163,13 +163,13 @@ public class PlayerShooting : MonoBehaviour {
 		if (wSlot == 1) {
 			otherWeapon = 0;
 		}
-		var swapFrom = transform.Find("playerCamera/weaponController/" + weapons[otherWeapon].prefab).gameObject;
-		var swapTo = transform.Find("playerCamera/weaponController/" + cW.prefab).gameObject;
+		//var swapFrom = transform.Find("/weaponController" + weapons[otherWeapon].prefab).gameObject;
+		//var swapTo = transform.Find("/weaponController" + cW.prefab).gameObject;
 
-		Debug.Log (swapTo);
+		//Debug.Log (swapTo);
 
-		swapFrom.SetActive (false);
-		swapTo.SetActive (true);
+		//swapFrom.SetActive (false);
+		//swapTo.SetActive (true);
 	}
 	
 	void shoot() {
