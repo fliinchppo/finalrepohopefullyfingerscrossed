@@ -11,7 +11,7 @@ public class GameUI : MonoBehaviour {
 	//-------Use this for initialization----------------------------------------------------------------------------------------------------------------------------------------
 	void Start () {
 		Screen.lockCursor = true;
-		Cursor.visible = true;
+		Cursor.visible = false;
 	}
 	
 	//-------Update is called once per frame------------------------------------------------------------------------------------------------------------------------------------

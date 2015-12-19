@@ -64,8 +64,6 @@ public class PlayerShooting : MonoBehaviour {
 		UpdateHUD ();
 		bulletsShot = 0;
 
-		Debug.Log (weapons);
-
 		//impacts = new GameObject[maxImpacts];
 		//for (int i = 0; i < maxImpacts; i++) {
 		//	impacts[i] = (GameObject)Instantiate(impactPrefab);
@@ -123,6 +121,7 @@ public class PlayerShooting : MonoBehaviour {
 		cW = weapons [w];
 		
 		UpdateHUD ();
+		SwapWeaponMesh ();
 		
 		Debug.Log (w);
 	}
@@ -153,6 +152,12 @@ public class PlayerShooting : MonoBehaviour {
 		}
 	}
 
+	void SwapWeaponMesh () {
+		var gun = transform.Find("playerCamera/weaponController/AssaultRifle").gameObject;
+		Mesh mesh = (Mesh)Resources.Load(cW.modelURL,typeof(Mesh));
+		gun.GetComponent<MeshFilter>().mesh = mesh;
+	}
+	
 	void shoot() {
 		if (cW.hitscan == true) {
 			hitscanShot ();
