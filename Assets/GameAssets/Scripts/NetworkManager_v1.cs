@@ -22,12 +22,14 @@ public class NetworkManager_v1 : MonoBehaviour {
 	}
 
 	void OnGUI() {
+		GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
+
 		if (!PhotonNetwork.connected) {
-			GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
-		} else if (PhotonNetwork.room == null) {
-			// Create Room
-			if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server")) {
-				PhotonNetwork.CreateRoom(roomName + Guid.NewGuid().ToString("N"), new RoomOptions() { maxPlayers = 10}, null);
+			if (PhotonNetwork.room == null) {
+				// Create Room
+				if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server")) {
+					PhotonNetwork.CreateRoom(roomName + Guid.NewGuid().ToString("N"), new RoomOptions() { maxPlayers = 10}, null);
+				}
 			}
 			
 			// Join Room
@@ -69,11 +71,8 @@ public class NetworkManager_v1 : MonoBehaviour {
 
 		myPlayerGameObj.GetComponent<GameUI> ().enabled = true;
 		myPlayerGameObj.GetComponent<MouseLook> ().enabled = true;
-		//myPlayerGameObj.GetComponent<NetworkCharacter> ().enabled = true;
 		myPlayerGameObj.GetComponent<PlayerShooting> ().enabled = true;
 		myPlayerGameObj.GetComponent<BetterPlayerMovement> ().enabled = true;
-		//myPlayerGameObj.GetComponent<Animator> ().enabled = true;
-		//myPlayerGameObj.GetComponent<WeaponSwap> ().enabled = true;
 		myPlayerGameObj.transform.FindChild ("playerCamera").gameObject.SetActive (true);
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Spawn : MonoBehaviour {
+public class PlayerSpawn : MonoBehaviour {
 	//-------Declare variables--------------------------------------------------------------------------------------------------------------------------------------------------
 	public int teamID = 0;
 

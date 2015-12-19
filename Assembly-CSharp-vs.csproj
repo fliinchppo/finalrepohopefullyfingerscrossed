@@ -66,12 +66,10 @@
      <Compile Include="Assets\GameAssets\Scripts\MouseLook.cs" />
      <Compile Include="Assets\GameAssets\Scripts\NetworkCharacter.cs" />
      <Compile Include="Assets\GameAssets\Scripts\NetworkManager_v1.cs" />
-     <Compile Include="Assets\GameAssets\Scripts\NetworkMenu.cs" />
      <Compile Include="Assets\GameAssets\Scripts\PlayerAnimation.cs" />
      <Compile Include="Assets\GameAssets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\GameAssets\Scripts\PlayerShooting.cs" />
      <Compile Include="Assets\GameAssets\Scripts\PlayerSpawn.cs" />
-     <Compile Include="Assets\GameAssets\Scripts\SpawnSpot.cs" />
      <Compile Include="Assets\GameAssets\Scripts\TweakADS.cs" />
      <Compile Include="Assets\GameAssets\Scripts\WeaponContainer.cs" />
      <Compile Include="Assets\GameAssets\Scripts\WeaponSwap.cs" />
