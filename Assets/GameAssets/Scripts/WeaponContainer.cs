@@ -15,6 +15,7 @@ public class WeaponContainer {
 	public int reserveAmmo;	// make sure to reset this when killed and when weapon is swapped
 	public int reserveAmmoMax;
 	public string modelURL;
+	public string prefab;
 
 	// Constructor when no arguments are passed
 	public WeaponContainer () {
@@ -33,6 +34,7 @@ public class WeaponContainer {
 		damage = wep ["damage"].AsInt;
 		hitscan = wep ["hitscan"].AsBool;
 		modelURL = wep ["model"];
+		prefab = wep ["prefab"];
 		reloadTime = wep ["reloadTime"].AsFloat;
 		shotInterval = wep ["shotInterval"].AsFloat;
 	}

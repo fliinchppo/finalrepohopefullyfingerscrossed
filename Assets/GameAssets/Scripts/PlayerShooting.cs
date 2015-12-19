@@ -44,7 +44,7 @@ public class PlayerShooting : MonoBehaviour {
 		var weaponList = JSON.Parse (jsonList.text); // Parse weapon file
 
 		loadoutWeapon1 = "pistol";
-		loadoutWeapon2 = "assaultRifle";
+		loadoutWeapon2 = "boltActionRifle";
 		
 		// Get chosen loadout weapons and store as WeaponContainer class
 
@@ -121,7 +121,7 @@ public class PlayerShooting : MonoBehaviour {
 		cW = weapons [w];
 		
 		UpdateHUD ();
-		SwapWeaponMesh ();
+		SwapWeaponPrefab ();
 		
 		Debug.Log (w);
 	}
@@ -156,6 +156,20 @@ public class PlayerShooting : MonoBehaviour {
 		var gun = transform.Find("playerCamera/weaponController/AssaultRifle").gameObject;
 		Mesh mesh = (Mesh)Resources.Load(cW.modelURL,typeof(Mesh));
 		gun.GetComponent<MeshFilter>().mesh = mesh;
+	}
+
+	void SwapWeaponPrefab () {
+		int otherWeapon = 1;
+		if (wSlot == 1) {
+			otherWeapon = 0;
+		}
+		var swapFrom = transform.Find("playerCamera/weaponController/" + weapons[otherWeapon].prefab).gameObject;
+		var swapTo = transform.Find("playerCamera/weaponController/" + cW.prefab).gameObject;
+
+		Debug.Log (swapTo);
+
+		swapFrom.SetActive (false);
+		swapTo.SetActive (true);
 	}
 	
 	void shoot() {

@@ -1,15 +1,34 @@
 fileFormatVersion: 2
-guid: 1b75810a3cca0c34f82dae8de3047b95
-timeCreated: 1450431249
+guid: c0c35e39552cd824baaa0c8c8472d06b
+timeCreated: 1450268012
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Cube
+    100004: Icosphere
+    100006: Bolt
+    100008: Gun
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cylinder
+    400002: Cube
+    400004: Icosphere
+    400006: Bolt
+    400008: Gun
+    2300000: Cube
+    2300002: Icosphere
+    2300004: //RootNode
+    2300006: Bolt
+    2300008: Gun
+    3300000: Cube
+    3300002: Icosphere
+    3300004: //RootNode
+    3300006: Bolt
+    3300008: Gun
+    4300000: Icosphere
+    4300002: Cube
+    4300004: Bolt
+    4300006: Gun
     7400000: Default Take
     9500000: //RootNode
   materials:
