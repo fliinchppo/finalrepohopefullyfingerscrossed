@@ -13,8 +13,8 @@ public class PlayerShooting : MonoBehaviour {
 	public GameObject bulletCasing;
 	public GameObject clone;
 	public GameObject impactPrefab;
-	public string loadoutWeapon1 = "pistol";
-	public string loadoutWeapon2 = "assaultRifle";
+	public string loadoutWeapon1;
+	public string loadoutWeapon2;
 	public Text ammmagtxt;
 	public Text ammvaltxt;
 	public RaycastHit hitInfo;
@@ -43,13 +43,13 @@ public class PlayerShooting : MonoBehaviour {
 		TextAsset jsonList = Resources.Load ("weaponsList") as TextAsset; // Load weapons list json file
 		var weaponList = JSON.Parse (jsonList.text); // Parse weapon file
 
+		loadoutWeapon1 = "pistol";
+		loadoutWeapon2 = "assaultRifle";
 		
 		// Get chosen loadout weapons and store as WeaponContainer class
 
 		WeaponContainer w1 = new WeaponContainer (weaponList [loadoutWeapon1]);
 		WeaponContainer w2 = new WeaponContainer (weaponList [loadoutWeapon2]);
-		Debug.Log (weaponList [loadoutWeapon1]);
-		Debug.Log (weaponList [loadoutWeapon2]);
 		
 		// Add WeaponContainers to weapons list
 		weapons.Add (w1);
