@@ -34,8 +34,6 @@ public class PlayerShooting : MonoBehaviour {
 	//int currentImpacts = 0;
 	//int maxImpacts = 5;
 
-
-
 	//public Animation weaponAnim; 
 
 	//-------Use this for initialization----------------------------------------------------------------------------------------------------------------------------------------
@@ -43,8 +41,8 @@ public class PlayerShooting : MonoBehaviour {
 		TextAsset jsonList = Resources.Load ("weaponsList") as TextAsset; // Load weapons list json file
 		var weaponList = JSON.Parse (jsonList.text); // Parse weapon file
 
-		loadoutWeapon1 = "pistol";
-		loadoutWeapon2 = "boltActionRifle";
+		loadoutWeapon1 = "assaultRifle";
+		loadoutWeapon2 = "pistol";
 		
 		// Get chosen loadout weapons and store as WeaponContainer class
 
@@ -68,6 +66,8 @@ public class PlayerShooting : MonoBehaviour {
 		//for (int i = 0; i < maxImpacts; i++) {
 		//	impacts[i] = (GameObject)Instantiate(impactPrefab);
 		//}
+
+
 	}
 
 	void Update () {
@@ -163,13 +163,13 @@ public class PlayerShooting : MonoBehaviour {
 		if (wSlot == 1) {
 			otherWeapon = 0;
 		}
-		//var swapFrom = transform.Find("/weaponController" + weapons[otherWeapon].prefab).gameObject;
-		//var swapTo = transform.Find("/weaponController" + cW.prefab).gameObject;
 
-		//Debug.Log (swapTo);
+		var swapFrom = transform.Find("HQBodyModel/ParentObject/Armature/LowerBody/Spine/UpperBody_0/Shoulder_R/UpperArm_R_0/LowerArm_R_0/Hand_R/weaponController/" + weapons[otherWeapon].prefab).gameObject;
+		var swapTo = transform.Find("HQBodyModel/ParentObject/Armature/LowerBody/Spine/UpperBody_0/Shoulder_R/UpperArm_R_0/LowerArm_R_0/Hand_R/weaponController/" + cW.prefab).gameObject;
+		Debug.Log (swapTo.ToString());
 
-		//swapFrom.SetActive (false);
-		//swapTo.SetActive (true);
+		swapFrom.SetActive (false);
+		swapTo.SetActive (true);
 	}
 	
 	void shoot() {
@@ -198,16 +198,14 @@ public class PlayerShooting : MonoBehaviour {
 				Debug.Log ("shot " + hitInfo.transform.tag + " for " + cW.damage + " damage.");
 			}
 
-			//if (hitInfo.transform.tag == "enemy") {  
-			//	enemy hp = hitInfo.collider.GetComponent<enemy>();
-			//if (hp != null) {
-			//	hp.applyDamage (damage, hitInfo.point);
-			//}
-			//	hitInfo.collider.gameObject.SendMessage("applyDamage", damage);
-			//	Debug.Log("shot " + hitInfo.transform.tag + " for " + damage + " damage.");
-			//}
-		} else {
-
+			/* if (hitInfo.transform.tag == "enemy") {
+				Debug.Log ("shot " + hitInfo.transform.tag + " for " + cW.damage + " damage.");
+				----APPLY DAMAGE TO TARGET PLAYER
+					----IF TARGET PLAYER'S HEALTH < WEAPON DAMAGE
+						----UPDATE KILL FEED, SEND DEATH MESSAGE TO TARGET
+					----ELSE, TARGET PLAYER'S HEALTH -= WEAPON DAMAGE
+			}
+			*/
 		}
 	}
 
@@ -215,6 +213,7 @@ public class PlayerShooting : MonoBehaviour {
 		// code this later lol, cbf atm
 	}
 
+	// broken function, only clientside
 	void casingEject() {
 		clone = Instantiate (bulletCasing, transform.position, transform.rotation) as GameObject;
 		cloneRB = bulletCasing.GetComponent<Rigidbody> ();
