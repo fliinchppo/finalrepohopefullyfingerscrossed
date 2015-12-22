@@ -51,7 +51,7 @@
      <Compile Include="Assets\GameAssets\Scripts\CrouchController.cs" />
      <Compile Include="Assets\GameAssets\Scripts\GameController.cs" />
      <Compile Include="Assets\GameAssets\Scripts\GameUI.cs" />
-     <Compile Include="Assets\GameAssets\Scripts\Menu\MainMenu.cs" />
+     <Compile Include="Assets\GameAssets\Scripts\Menu\Menu.cs" />
      <Compile Include="Assets\GameAssets\Scripts\Menu\PlayerMenu.cs" />
      <Compile Include="Assets\GameAssets\Scripts\Menu\sbMenu.cs" />
      <Compile Include="Assets\GameAssets\Scripts\MouseLock.cs" />
